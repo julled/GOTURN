@@ -12,6 +12,7 @@
 class Tracker
 {
 public:
+  Tracker();
   Tracker(const bool show_tracking);
 
   // Estimate the location of the target object in the current image.
@@ -24,8 +25,8 @@ public:
 
   // Initialize the tracker with the ground-truth bounding box of the first frame.
   // VOTRegion is an object for initializing the tracker when using the VOT Tracking dataset.
-  void Init(const std::string& image_curr_path, const VOTRegion& region,
-            RegressorBase* regressor);
+  //void Init(const std::string& image_curr_path, const VOTRegion& region,
+  //          RegressorBase* regressor);
 
 private:
   // Show the tracking output, for debugging.

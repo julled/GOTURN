@@ -16,6 +16,7 @@
 
 class Regressor : public RegressorBase {
  public:
+  Regressor();
   // Set up a network with the architecture specified in deploy_proto,
   // with the model weights saved in caffe_model.
   // If we are using a model with a

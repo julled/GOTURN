@@ -9,9 +9,15 @@
 #include "helper/high_res_timer.h"
 #include "helper/image_proc.h"
 
-Tracker::Tracker(const bool show_tracking) :
-  show_tracking_(show_tracking)
+Tracker::Tracker() :
+  show_tracking_(false)
 {
+}
+
+
+Tracker::Tracker(const bool show_tracking)
+{
+    show_tracking_= show_tracking;
 }
 
 void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
@@ -28,17 +34,17 @@ void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
   regressor->Init();
 }
 
-void Tracker::Init(const std::string& image_curr_path, const VOTRegion& region,
-                   RegressorBase* regressor) {
-  // Read the given image.
-  const cv::Mat& image = cv::imread(image_curr_path);
-
-  // Convert the VOT region into a bounding box.
-  BoundingBox bbox_gt(region);
-
-  // Initialize the tracker.
-  Init(image, bbox_gt, regressor);
-}
+//void Tracker::Init(const std::string& image_curr_path, const VOTRegion& region,
+//                   RegressorBase* regressor) {
+//  // Read the given image.
+//  const cv::Mat& image = cv::imread(image_curr_path);
+//
+//  // Convert the VOT region into a bounding box.
+//  BoundingBox bbox_gt(region);
+//
+//  // Initialize the tracker.
+//  Init(image, bbox_gt, regressor);
+//}
 
 void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
                     BoundingBox* bbox_estimate_uncentered) {

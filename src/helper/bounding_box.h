@@ -8,7 +8,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-class VOTRegion;
+//class VOTRegion;
 
 // Represents a bounding box on an image, with some additional functionality.
 class BoundingBox
@@ -16,13 +16,13 @@ class BoundingBox
 public:
   BoundingBox();
   BoundingBox(const std::vector<float>& bounding_box);
-  BoundingBox(const VOTRegion& region);
+  //BoundingBox(const VOTRegion& region);
 
   // Convert bounding box into a vector format.
   void GetVector(std::vector<float>* bounding_box) const;
 
   // Convert bounding box into VOTRegion format.
-  void GetRegion(VOTRegion* region);
+  //void GetRegion(VOTRegion* region);
 
   // Print the bounding box coordinates.
   void Print() const;
